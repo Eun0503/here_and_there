@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:here_and_there/bottom_bar.dart';
 import 'package:here_and_there/topbar.dart';
+import 'package:here_and_there/LocationsListPage.dart';
+import 'package:here_and_there/ListItem.dart';
+ // 적절한 패키지 경로를 사용하세요
 
 void main() {
   runApp(MyApp());
@@ -10,10 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, // 디버그 표시 제거
       home: MyHomePage(),
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -23,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
   Offset? _pinOffset;
+  List<Offset> _locations = [];
 
   void _onTap(int index) {
     setState(() {
@@ -37,7 +43,51 @@ class _MyHomePageState extends State<MyHomePage> {
       _pinOffset = localOffset;
     });
     print("Tapped position: $localOffset");
+    _showBottomSheet(context);
   }
+
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: 150,
+          padding: EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text("선택한 위치: $_pinOffset"),
+              SizedBox(height: 20),
+              Center(
+                child: ElevatedButton(
+                  child: Text("리스트에 추가하기"),
+                  onPressed: () {
+                    if (_pinOffset != null) {
+                      Navigator.pop(context); // 하단 시트를 닫습니다.
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LocationsListPage(
+                            items: [
+                              ListItem(name: "분좋카", locations: []),
+                              ListItem(name: "치킨(닭)먹는 날", locations: []),
+                              ListItem(name: "은똥이의 텃밭 가꾸기~", locations: []),
+                              ListItem(name: "달력에서 선택하기", locations: [])
+                            ],
+                            selectedLocation: _pinOffset!
+                        )),
+                      );
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -75,4 +125,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
 
