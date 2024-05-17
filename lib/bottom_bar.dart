@@ -10,7 +10,7 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: currentIndex,
-      onTap: onTap,
+      onTap: (index) => onTap(index),
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
