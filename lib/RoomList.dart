@@ -14,33 +14,25 @@ class RoomList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: rooms.map((room) {
-        bool isChecked = checkedNames.contains(room['name']);
-        return ListTile(
-          leading: CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: Text(
-              room['name']![0],
-              style: TextStyle(color: Colors.white),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: rooms.map((room) {
+          return ListTile(
+            leading: CircleAvatar(
+              child: Text(room['name']![0]), // Displaying the first letter of the name as the profile picture
             ),
-          ),
-          title: Row(
-            children: [
-              Expanded(
-                child: Text(room['name']!),
-              ),
-              IconButton(
-                icon: isChecked
-                    ? Icon(Icons.check_circle)
-                    : Icon(Icons.radio_button_unchecked),
-                onPressed: () => onToggleCheck(room['name']!),
-              ),
-            ],
-          ),
-          subtitle: Text(room['description']!),
-        );
-      }).toList(),
+            title: Text(room['name'] ?? ''),
+            subtitle: Text(room['description'] ?? ''),
+            onTap: () {
+              onToggleCheck(room['name'] ?? '');
+            },
+            trailing: checkedNames.contains(room['name'] ?? '')
+                ? Icon(Icons.check_circle, color: Colors.green)
+                : null,
+          );
+        }).toList(),
+      ),
     );
   }
 }
