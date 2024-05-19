@@ -25,9 +25,6 @@ class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Room List'),
-      ),
       body: RoomList(
         // 변경된 부분: _rooms와 _newRooms 리스트를 합침
         rooms: [..._rooms, ..._newRooms],
