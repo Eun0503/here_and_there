@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'my_home_page.dart';
+import 'Mapview.dart';
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // 디버그 표시 제거
-      home: MyHomePage(),
+      home: MapView(),
     );
   }
 }

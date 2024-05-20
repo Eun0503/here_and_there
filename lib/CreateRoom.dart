@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class RoomList extends StatelessWidget {
+class Createroom extends StatelessWidget {
   final List<Map<String, String>> rooms;
   final List<String> checkedNames;
   final Function(String) onToggleCheck;
 
-  const RoomList({
+  const Createroom({
     Key? key,
     required this.rooms,
     required this.checkedNames,

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'bottom_bar.dart';
-import 'topbar.dart';
+import 'BottomBar.dart';
+import 'TopBar.dart';
 import 'locations_list_page.dart';
 import 'list_item.dart';
 import 'location_data_to_database.dart';
 
-class MyHomePage extends StatefulWidget {
+class MapView extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MapView> {
   int _currentIndex = 0;
   Offset? _pinOffset;
   List<Offset> _locations = [];
@@ -87,7 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopBar(title: '비둘기 모임'),
+      appBar: TopBar(
+        title: '비둘기 모임',
+      ),
       body: Center(
         child: GestureDetector(
           onTapUp: _onImageTap,

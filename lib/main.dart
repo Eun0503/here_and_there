@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'TopBar.dart';
 import 'BottomBar.dart';
-import 'Room.dart'; // Room.dart 파일을 import
+import 'User.dart'; // User.dart 파일을 import
 import 'List.dart';
 
 void main() {
@@ -47,12 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: TopBar(
         title: widget.title,
-        onAddCommentPressed: () {}, // Placeholder
-        onAddPersonPressed: () {},  // Placeholder
+          // Placeholder
       ),
       body: _currentIndex == 0
           ? ListPage() // Display the ListPage when index is 0 (Home tab)
-          : RoomPage(), // Display the RoomPage when index is 1 (Friends tab)
+          : User(), // Display the RoomPage when index is 1 (Friends tab)
       bottomNavigationBar: BottomBar(
         currentIndex: _currentIndex,
         onTap: _onTabTapped,

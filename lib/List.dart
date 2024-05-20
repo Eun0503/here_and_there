@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'RoomList.dart';
+import 'CreateRoom.dart';
 
 class ListPage extends StatefulWidget {
   @override
@@ -25,7 +25,7 @@ class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RoomList(
+      body: Createroom(
         // 변경된 부분: _rooms와 _newRooms 리스트를 합침
         rooms: [..._rooms, ..._newRooms],
         checkedNames: [],

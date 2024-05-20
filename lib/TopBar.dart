@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final VoidCallback onAddCommentPressed; // onAddCommentPressed 콜백을 추가
-  final VoidCallback onAddPersonPressed; // onAddPersonPressed 콜백을 추가
 
-  TopBar({required this.title, required this.onAddCommentPressed, required this.onAddPersonPressed});
+  TopBar({
+    required this.title,});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: Icon(Icons.menu),
-          onPressed: onAddCommentPressed,
+          onPressed: null, // 메뉴 아이템이 눌렸을 때 아무것도 실행되지 않도록 함
         ),
       ],
     );

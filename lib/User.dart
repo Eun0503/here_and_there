@@ -1,16 +1,16 @@
-// Room.dart
+// User.dart
 import 'package:flutter/material.dart';
-import 'RoomList.dart';
+import 'CreateRoom.dart';
 import 'List.dart'; // List.dart 파일 import 추가
 
-class RoomPage extends StatefulWidget {
-  const RoomPage({Key? key}) : super(key: key);
+class User extends StatefulWidget {
+  const User({Key? key}) : super(key: key);
 
   @override
-  State<RoomPage> createState() => _RoomPageState();
+  State<User> createState() => _UserState();
 }
 
-class _RoomPageState extends State<RoomPage> {
+class _UserState extends State<User> {
   // 방 목록과 선택된 방 정보를 관리합니다.
   List<Map<String, String>> _rooms = [
     {'name': '금소현', 'description': '부산방, 시험 끝나고 놀러가자~!방 ··· +1'},
