@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final VoidCallback onAddCommentPressed; // onAddCommentPressed 콜백을 추가
+  final VoidCallback onAddPersonPressed; // onAddPersonPressed 콜백을 추가
 
-  TopBar({required this.title});
+  TopBar({required this.title, required this.onAddCommentPressed, required this.onAddPersonPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -14,20 +16,18 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: Icon(Icons.arrow_back),
         onPressed: () {
-          // 뒤로가기 버튼을 눌렀을 때의 동작을 추가할 수 있습니다.
+          Navigator.of(context).pop();
         },
       ),
       actions: [
         IconButton(
           icon: Icon(Icons.menu),
-          onPressed: () {
-            // 메뉴 버튼을 눌렀을 때의 동작을 추가할 수 있습니다.
-          },
+          onPressed: onAddCommentPressed,
         ),
       ],
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(80.0);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
