@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'List.dart'; // List.dart 파일을 import
 
 class BottomBar extends StatelessWidget {
   final int currentIndex;
-  final Function(int) onTap;
+  final ValueChanged<int> onTap;
 
-  BottomBar({required this.currentIndex, required this.onTap});
+  const BottomBar({
+    Key? key,
+    required this.currentIndex,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: currentIndex,
-      onTap: (index) => onTap(index),
-      items: [
+      onTap: onTap,
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: '홈',
