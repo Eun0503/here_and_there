@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'List.dart'; // List.dart 파일을 import
+import 'RoomListPage.dart'; // RoomListPage.dart 파일을 import
 
 class BottomBar extends StatelessWidget {
   final int currentIndex;

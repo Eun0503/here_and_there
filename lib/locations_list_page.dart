@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'list_item.dart';
+
+import 'ListItem.dart';
 
 class LocationsListPage extends StatelessWidget {
   final List<ListItem> items;

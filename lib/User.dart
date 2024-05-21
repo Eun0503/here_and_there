@@ -1,7 +1,7 @@
 // User.dart
 import 'package:flutter/material.dart';
 import 'CreateRoom.dart';
-import 'List.dart'; // List.dart 파일 import 추가
+import 'RoomListPage.dart'; // RoomListPage.dart 파일 import 추가
 
 class User extends StatefulWidget {
   const User({Key? key}) : super(key: key);
@@ -160,7 +160,7 @@ class _UserState extends State<User> {
     _addRoom(roomName, '새로운 방이 생성되었습니다.');
 
     // 변경된 부분: 방 생성 후 List.dart에도 새로운 방 정보 추가
-    ListPage.addRoomToList(roomName, '새로운 방이 생성되었습니다.');
+    RoomListPage.addRoomToList(roomName, '새로운 방이 생성되었습니다.');
 
     showDialog(
       context: context,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'BottomBar.dart';
+import 'ListItem.dart';
+import 'LocationDataToDatabase.dart';
 import 'TopBar.dart';
 import 'locations_list_page.dart';
-import 'list_item.dart';
-import 'location_data_to_database.dart';
 
 class MapView extends StatefulWidget {
   @override

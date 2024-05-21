@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'TopBar.dart';
 import 'BottomBar.dart';
 import 'User.dart'; // User.dart 파일을 import
-import 'List.dart';
+import 'RoomListPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // Placeholder
       ),
       body: _currentIndex == 0
-          ? ListPage() // Display the ListPage when index is 0 (Home tab)
+          ? RoomListPage() // Display the ListPage when index is 0 (Home tab)
           : User(), // Display the RoomPage when index is 1 (Friends tab)
       bottomNavigationBar: BottomBar(
         currentIndex: _currentIndex,

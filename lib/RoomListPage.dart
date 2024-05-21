@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'CreateRoom.dart';
 
-class ListPage extends StatefulWidget {
+class RoomListPage extends StatefulWidget {
   @override
-  _ListPageState createState() => _ListPageState();
+  _RoomListPageState createState() => _RoomListPageState();
 
   // 정적 메서드로 addRoomToList 정의
   static void addRoomToList(String name, String description) {
-    _ListPageState()._addRoom(name, description);
+    _RoomListPageState()._addRoom(name, description);
   }
 }
 
-class _ListPageState extends State<ListPage> {
+class _RoomListPageState extends State<RoomListPage> {
   // 변경된 부분: 새로운 방 목록을 저장하는 리스트
   static List<Map<String, String>> _newRooms = [];
 
