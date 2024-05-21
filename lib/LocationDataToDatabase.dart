@@ -27,17 +27,16 @@ Future<void> saveLocationToFirestore(String document) async {
   }
 }}
 
-// Future<void> saveLocationToFirestore(Offset location) async {
+// Future<void> saveRoomToFirestore(String document) async {
 //   try {
 //     // Firestore 인스턴스 가져오기
 //     FirebaseFirestore firestore = FirebaseFirestore.instance;
 //
-//     // Firestore에 위치 정보 저장
-//     await firestore.collection('locations').add({
-//       'x': location.dx,
-//       'y': location.dy,
+//     // Firestore에 위치 정보 저장 (문서 이름을 지정하여 추가)
+//     await firestore.collection(document).add({
+//       'x': _location!.dx,
+//       'y': _location!.dy,
 //     });
-//
 //     print('Location saved to Firestore successfully.');
 //   } catch (e) {
 //     print('Error saving location to Firestore: $e');

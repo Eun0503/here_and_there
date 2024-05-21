@@ -1,25 +1,34 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'AuthSelectionPage.dart';
+import 'SignupPage.dart';
 import 'TopBar.dart';
 import 'BottomBar.dart';
-import 'User.dart'; // User.dart 파일을 import
+import 'Userpage.dart'; // Userpage.dart 파일을 import
 import 'RoomListPage.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  ); // Firebase 초기화
+
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'My App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false, //디버그 배너 X
+      home: AuthSelectionPage(), // AuthSelectionPage로 설정
     );
   }
 }
@@ -45,13 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopBar(
-        title: widget.title,
-          // Placeholder
-      ),
       body: _currentIndex == 0
-          ? RoomListPage() // Display the ListPage when index is 0 (Home tab)
-          : User(), // Display the RoomPage when index is 1 (Friends tab)
+          ? RoomListPage() // Display the RoomListPage when index is 0 (Home tab)
+          : Userpage(), // Display the RoomPage when index is 1 (Friends tab)
       bottomNavigationBar: BottomBar(
         currentIndex: _currentIndex,
         onTap: _onTabTapped,

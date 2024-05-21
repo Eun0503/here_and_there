@@ -44,6 +44,7 @@ class _LocationsListPageState extends State<LocationsListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: TopBar(title: "비둘기 모임"),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,8 +128,8 @@ class _LocationsListPageState extends State<LocationsListPage> {
 
 
             // Firestore에 위치 정보를 저장합니다.
-           for (String name in _selectedNames) {
-          locationDataToDatabase.saveLocationToFirestore(name);}
+            for (String name in _selectedNames) {
+              locationDataToDatabase.saveLocationToFirestore(name);}
           },
           child: Icon(Icons.check),
           backgroundColor: Colors.grey,
