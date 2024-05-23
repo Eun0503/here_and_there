@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
             MaterialPageRoute(
               builder: (context) => UserState(
                 currentUserId: userId,
-                child: const MyHomePage(title: 'ㅗㅗ',),
+                child: const MyHomePage(title: '0',),
               ),
             ),
           );
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: '이메일'),
+              decoration: InputDecoration(labelText: '이메일(예시 이메일:www)'),
               keyboardType: TextInputType.emailAddress,
             ),
             SizedBox(height: 20),

@@ -61,7 +61,7 @@ class _UserpageState extends State<Userpage> {
           title: Text('친구 추가'),
           content: TextField(
             controller: _friendNameController,
-            decoration: InputDecoration(labelText: '친구 이름'),
+            decoration: InputDecoration(labelText: '친구 이름(예시 친구: 서효주, 성채원)'),
           ),
           actions: [
             TextButton(
